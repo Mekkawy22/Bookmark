@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        
+        <!-- Page title displayed in the browser tab -->
+        <title>Bookmark</title>
+        
+        <!-- Favicon for the website (icon displayed in browser tab) -->
+        <link rel="icon" href="./IMG/favicon.ico">
+        
+        <!-- Viewport settings for responsive design -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Google Fonts (Pacifico and Righteous) -->
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+        
+        <!-- External CSS files -->
+        <link rel="stylesheet" href="./css/all.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+</head>  
+<body>
+    <main class="bookmark-section py-5">
+        <section class="content container text-center d-flex flex-column align-items-center">
+            <header>
+                <h1 class="title position-relative mb-4">Bookmark</h1>
+            </header>
+            <div class="bookmark-form w-100 p-4 d-flex flex-column align-items-center gap-3">
+                <h2><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i class="fa-solid fa-bookmark"></i></h2>
+        
+                <!-- Site Name Input Field -->
+                <div class="form-group w-100 d-flex flex-column align-items-start">
+                    <label for="siteName" class="font-weight-bold mb-2"><i class="fa-solid fa-folder-plus pe-2"></i> Site Name</label>
+                    <input type="text" id="siteName" class="form-control" placeholder="Enter site name" aria-label="Site Name" required />
+                    <span id="nameMessage" class="message">Site name should be 3-50 characters and can include letters, numbers, spaces, dashes, or underscores.</span>
+                </div>
+                
+                <!-- Site URL Input Field -->
+                <div class="form-group w-100 d-flex flex-column align-items-start">
+                    <label for="siteURL" class="font-weight-bold mb-2"><i class="fa-solid fa-link pe-2"></i> Site URL</label>
+                    <input type="url" id="siteURL" class="form-control" placeholder="Enter site URL" aria-label="Site URL" required />
+                    <span id="urlMessage" class="message">URL should start with http:// or https:// followed by a valid domain.</span>
+                </div>
+                
+                <button onclick="addBookmark()" id="addBookmarkBtn" class="btn px-5">Submit</button>
+            </div>
+            
+            <div class="table-container w-100 mt-5">
+                <table class="table table-striped text-center">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Website Name</th>
+                            <th scope="col">Visit Link</th>
+                            <th scope="col">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookmarkList"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+
+</body>
+</html>

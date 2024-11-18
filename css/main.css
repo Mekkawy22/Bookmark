@@ -1,0 +1,109 @@
+body {
+    background-color: #F7ECDE !important;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: "Pacifico", cursive;
+    color: #352e28;
+    position: relative;
+    padding-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+main h1::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    left: 0;
+    bottom: 5px;
+    background-color: #fec260;
+    z-index: -1;
+    transition: height 0.3s ease, background-color 0.3s ease;
+}
+
+main h1:hover {
+    color: #d1512d;
+}
+
+main h1:hover::before {
+    height: 50%;
+    background-color: #f3a712;
+}
+
+.bookmark-form h2 {
+    font-family: "Righteous", cursive;
+    font-size: 25px;
+    background: linear-gradient(to right, #3ca55c, #b5ac49);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.bookmark-form {
+    border-top: 2px dotted #352e28;
+    border-bottom: 2px dotted #352e28;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+#addBookmarkBtn {
+    background-color: #d1512d;
+    color: #ffffff;
+    border-radius: 25px;
+    padding: 10px 25px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#addBookmarkBtn:hover {
+    background-color: #bb4120;
+    transform: scale(1.05);
+}
+
+.table-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+    --bs-table-striped-bg: #f3f3f3 !important;
+}
+
+.table th, .table td {
+    padding: 15px;
+    font-size: 16px;
+    color: #444;
+}
+
+.btn-success {
+    background-color: #3ca55c;
+    border-color: #3ca55c;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #319048;
+}
+
+.btn-danger {
+    background-color: #d1512d;
+    border-color: #d1512d;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #bb4120;
+}
+
+.message {
+    color: red;
+    font-size: 0.9em;
+    display: none;
+}
