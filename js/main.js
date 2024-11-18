@@ -1,20 +1,25 @@
+//  elements
 var siteName = document.getElementById('siteName');
 var siteURL = document.getElementById('siteURL');
 var nameMessage = document.getElementById('nameMessage');
 var urlMessage = document.getElementById('urlMessage');
 var site = [];
 
+// Regular expressions for input validation
 var nameRegex = /^[a-zA-Z0-9\s\-_]{3,10}$/;
 var urlRegex = /^(https?:\/\/)?(www\.)?([a-zA-Z0-9]+)\.[a-z]{2,}(\.[a-z]{2,})?(\/\S*)?$/;
 
+// Check for stored data
 if (localStorage.getItem('allsite') != null) {
     site = JSON.parse(localStorage.getItem('allsite'));
     displaySite();
 }
 
+// Add event listeners
 siteName.addEventListener('input', validateName);
 siteURL.addEventListener('input', validateURL);
 
+// Function to validate the site name
 function validateName() {
     if (nameRegex.test(siteName.value.trim())) {
         siteName.classList.remove('is-invalid');
@@ -27,25 +32,27 @@ function validateName() {
     }
 }
 
+// Function to validate the site URL
 function validateURL() {
-  let urlValue = siteURL.value.trim();
-  
-  if (!urlValue.startsWith('http://') && !urlValue.startsWith('https://')) {
-      urlValue = 'http://' + urlValue;
-      siteURL.value = urlValue;
-  }
+    var urlValue = siteURL.value.trim();
+    
+    if (!urlValue.startsWith('http://') && !urlValue.startsWith('https://')) {
+        urlValue = 'http://' + urlValue;
+        siteURL.value = urlValue;
+    }
 
-  if (urlRegex.test(urlValue)) {
-      siteURL.classList.remove('is-invalid');
-      siteURL.classList.add('is-valid');
-      urlMessage.style.display = 'none';
-  } else {
-      siteURL.classList.remove('is-valid');
-      siteURL.classList.add('is-invalid');
-      urlMessage.style.display = 'block';
-  }
+    if (urlRegex.test(urlValue)) {
+        siteURL.classList.remove('is-invalid');
+        siteURL.classList.add('is-valid');
+        urlMessage.style.display = 'none';
+    } else {
+        siteURL.classList.remove('is-valid');
+        siteURL.classList.add('is-invalid');
+        urlMessage.style.display = 'block';
+    }
 }
 
+// Function to add a bookmark
 function addBookmark() {
     if (!nameRegex.test(siteName.value.trim()) || !urlRegex.test(siteURL.value.trim())) {
         validateName();
@@ -61,22 +68,28 @@ function addBookmark() {
     site.unshift(Bookmark);
     localStorage.setItem('allsite', JSON.stringify(site));
 
+    clearForm();
+    displaySite();
+} 
+// Function to clear the form
+function clearForm() {
     siteName.value = '';
     siteURL.value = '';
     siteName.classList.remove('is-valid');
     siteURL.classList.remove('is-valid');
     nameMessage.style.display = 'none';
     urlMessage.style.display = 'none';
-
-    displaySite();
 }
 
-function deletesite(index) {
+
+// Function to delete a bookmark
+function deleteSite(index) {
     site.splice(index, 1);
     localStorage.setItem('allsite', JSON.stringify(site));
     displaySite();
 }
 
+// Function to display bookmarks
 function displaySite() {
     var cartona = '';
     for (var i = 0; i < site.length; i++) {
@@ -90,7 +103,7 @@ function displaySite() {
                 </a>
               </td>
               <td>
-                <button onclick="deletesite(${i})" class="btn btn-danger px-2">
+                <button onclick="deleteSite(${i})" class="btn btn-danger px-2">
                   <i class="fa-solid fa-trash"></i> Remove
                 </button>
               </td>
