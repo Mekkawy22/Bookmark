@@ -85,12 +85,12 @@ function displaySite() {
               <td>${i + 1}</td>
               <td>${site[i].siteName}</td>
               <td>
-                <a href="${site[i].siteURL}" target="_blank" class="btn btn-success px-4" aria-label="Visit Site">
+                <a href="${site[i].siteURL}" target="_blank" class="btn btn-success px-2" aria-label="Visit Site">
                     <i class="fa-solid fa-external-link pe-2"></i> Visit
                 </a>
               </td>
               <td>
-                <button onclick="deletesite(${i})" class="btn btn-danger px-4" aria-label="Remove Bookmark">
+                <button onclick="deletesite(${i})" class="btn btn-danger px-2" aria-label="Remove Bookmark">
                   <i class="fa-solid fa-trash"></i> Remove
                 </button>
               </td>
